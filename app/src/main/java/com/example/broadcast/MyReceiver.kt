@@ -9,6 +9,10 @@ class MyReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
         when (intent?.action) {
+            "loaded" -> {
+                val percent = intent.getIntExtra("percent", 0)
+                Toast.makeText(context, "Loaded $percent", Toast.LENGTH_SHORT).show()
+            }
             ACTION_CLICKED -> {
                 val count = intent.getIntExtra(EXTRA_COUNT, 0)
                 Toast.makeText(context, "Clicked $count", Toast.LENGTH_SHORT).show()
